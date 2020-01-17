@@ -26,7 +26,7 @@ void setup() {
   // Initialize the pedal!
   pedal.init();
 
-  // Route audio from instrument -> my_amplitude_mod -> amp
+  // Route audio from instrument -> fx_amplitude_mod -> amp
   pedal.route_audio(pedal.instr_in, tremy.input);
   pedal.route_audio(tremy.output, pedal.amp_out);  
 

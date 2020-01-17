@@ -6,7 +6,7 @@
  * Right pot: type of modulation - full left is sine, center is triangle and right is random
  * 
  * Left footswitch: bypass - turns on and off the effect
- * Right footswitch: tap - tap it a few times at a set interval to update the flanger modulation rate
+ * Right footswitch: tap - tap it a few times at a set interval to update the vibrato modulation rate
  * 
  * This effect uses a tiny amount of the available processing power and memory.
  * It's provided as an example of how to use the various features of the fx_variable_delay block
@@ -19,6 +19,7 @@ fx_variable_delay vibrato(1.0,          // Initial rate of 1 Hz (1 cycle / secon
                           0.0,          // No feedback needed for vibrato
                           100.0,        // Delay line length (also effects depth) in milliseconds
                           0.0,          // Clean mix set to 0 since we just want to hear pitch shifted
+                          1.0,          // Delayed mix to 1.0
                           OSC_SINE,     // Initial oscillator is sine wave
                           false);       // Don't use an external signal for oscillator
 
@@ -34,7 +35,7 @@ void setup() {
   // left footswitch is bypass
   pedal.add_bypass_button(FOOTSWITCH_LEFT);
 
-  // Right foot switch is tap loop length
+  // Right foot switch is tap modulation rate 
   pedal.add_tap_interval_button(FOOTSWITCH_RIGHT, true);
 
   // Run this effect
@@ -46,7 +47,7 @@ void setup() {
 void loop() {
 
 
-  // If new tempo has been tapped in, use that to control vibrato rate
+  // If new mod rate has been tapped in, use that to control vibrato rate
   if (pedal.new_tap_interval()) { 
     vibrato.set_rate_hz(pedal.get_tap_freq_hz());
   } 
@@ -76,6 +77,5 @@ void loop() {
 
   // Run pedal service to take care of stuff
   pedal.service();  
-
 
 }
