@@ -1,5 +1,5 @@
 /**
- * This is an implementation of a typical pitch shift pedal.   
+ * This is an implementation of a pitch shift pedal.   
  * 
  * Left pot: Dry / clean signal mix
  * Center pot: Pitch shift setting (oct down, fifth down, third down, third up, fifth up, octave up)
@@ -39,6 +39,7 @@ void setup() {
   // left footswitch is bypass
   pedal.add_bypass_button(FOOTSWITCH_LEFT);
 
+   // Run this effect
   pedal.run();
 }
 

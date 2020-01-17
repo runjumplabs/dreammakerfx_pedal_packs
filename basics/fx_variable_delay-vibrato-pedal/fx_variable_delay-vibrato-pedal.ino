@@ -1,5 +1,5 @@
 /**
- * This is an implementation of a typical vibrato pedal.   
+ * This is an implementation of a vibrato pedal.   
  * 
  * Left pot: depth - the depth of the vibrato effect
  * Center pot: delay time - modulation rate
