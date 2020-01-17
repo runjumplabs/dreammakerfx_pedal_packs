@@ -11,6 +11,7 @@
  * This effect uses a tiny amount of the available processing power and memory.
  * It's provided as an example of how to use the various features of the fx_delay block
  * 
+ * 
  */
 #include <dreammakerfx.h>
 
@@ -20,6 +21,7 @@ fx_delay    my_delay(3000.0,  // 3000 ms / 3 seconds
 void setup() {
   // put your setup code here, to run once:
 
+  // Initialize the pedal!
   pedal.init();
 
   // Route audio from instrument -> my_delay -> amp
