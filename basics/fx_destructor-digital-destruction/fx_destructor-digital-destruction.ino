@@ -29,6 +29,7 @@ void setup() {
   // Initialize the pedal!
   pedal.init();
 
+  // Route audio through destructors and then output gain stage
   pedal.route_audio(pedal.instr_in, destruct_bits.input);
   pedal.route_audio(destruct_bits.output, destruct_sample.input);
   pedal.route_audio(destruct_sample.output, out_gain.input);

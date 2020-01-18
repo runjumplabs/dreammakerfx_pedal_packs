@@ -28,8 +28,9 @@ void setup() {
   // put your setup code here, to run once:
 
   // Initialize the pedal!
-  pedal.init();
+  pedal.init(true, true);
 
+  // Route audio through distortion, tone filter and then output gain
   pedal.route_audio(pedal.instr_in, destruct.input);
   pedal.route_audio(destruct.output, tone_filter.input);
   pedal.route_audio(tone_filter.output, out_gain.input);

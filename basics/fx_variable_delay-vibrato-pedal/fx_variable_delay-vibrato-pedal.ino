@@ -28,7 +28,7 @@ void setup() {
   // put your setup code here, to run once:
   pedal.init();
 
-  // Route audio
+  // Route audio through vibrato 
   pedal.route_audio(pedal.instr_in, vibrato.input);
   pedal.route_audio(vibrato.output, pedal.amp_out);  
 
