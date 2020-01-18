@@ -24,7 +24,6 @@ fx_variable_delay vibrato(1.0,          // Initial rate of 1 Hz (1 cycle / secon
                           false);       // Don't use an external signal for oscillator
 
 void setup() {
-  
   // put your setup code here, to run once:
   pedal.init();
 
@@ -40,13 +39,10 @@ void setup() {
 
   // Run this effect
   pedal.run();
-
 }
 
 
 void loop() {
-
-
   // If new mod rate has been tapped in, use that to control vibrato rate
   if (pedal.new_tap_interval()) { 
     vibrato.set_rate_hz(pedal.get_tap_freq_hz());
@@ -59,7 +55,7 @@ void loop() {
 
   // Center pot controls rate
   if (pedal.pot_center.has_changed()) { 
-    float rate_hz = pedal.pot_center.val* 6.0;
+    float rate_hz = pedal.pot_center.val * 6.0;
     pedal.set_tap_blink_rate_hz(rate_hz);
     vibrato.set_rate_hz(rate_hz);     
   } 
@@ -77,5 +73,4 @@ void loop() {
 
   // Run pedal service to take care of stuff
   pedal.service();  
-
 }
